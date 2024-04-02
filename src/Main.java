@@ -1,6 +1,3 @@
-import javax.swing.*;
-import java.time.LocalDate;
-
 public class Main {
     public static void main(String[] args) {
         /*
@@ -17,10 +14,11 @@ public class Main {
             System.out.println(Fechas.fechaEntre(inicio, fin));
         }
 */
-        String dniTest = "44083909W";
-
-        System.out.println(Dni.esValido(dniTest));;
-
-
-    }
+        String dniTest1 = "44083909v";
+        String dniTest2 = "44083910V";
+        String dniTest3 = "12345678Z";
+        System.out.println(Id_esp.esValidoDNI(dniTest1));
+        System.out.println(Id_esp.esValidoDNI(dniTest2));
+        System.out.println(Id_esp.esValidoDNI(dniTest3));
+          }
 }

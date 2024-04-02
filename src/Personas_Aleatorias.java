@@ -26,7 +26,7 @@ public class Personas_Aleatorias {
             String[] nombreApellido = {"", "", ""};
 
             nombreApellido = nombreApellidosAleatorios();
-            System.out.println(nombreApellido[0]+" "+nombreApellido[1]+" "+nombreApellido[2]);
+            System.out.println(nombreApellido[0] + " " + nombreApellido[1] + " " + nombreApellido[2]);
         }
     }
 
@@ -49,6 +49,13 @@ public class Personas_Aleatorias {
 
         // Determina el nombre si es femenino o masculino
         int sexo = random.nextInt(2);
+        // Prueba con operador ternario
+        nombreApellido[0] = (sexo == 1) ? nombreM[PosicionAleatoria(porcentajeM1000, porcentajeM)] : nombreF[PosicionAleatoria(porcentajeF1000, porcentajeF)];
+        nombreApellido[1] = apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
+        nombreApellido[2] = apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
+
+        // Version antigua
+        /*
         if (sexo == 1) {
             nombreApellido[0] = nombreM[PosicionAleatoria(porcentajeM1000, porcentajeM)];
             // System.out.println(nombreM[PosicionAleatoria(porcentajeM1000, porcentajeM)]
@@ -59,10 +66,7 @@ public class Personas_Aleatorias {
             //       + " " + apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)] + " " + apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)] + " ");
 
         }
-
-        nombreApellido[1] = apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
-        nombreApellido[2] = apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
-
+        */
         return nombreApellido;
     }
 
