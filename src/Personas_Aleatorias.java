@@ -32,7 +32,7 @@ public class Personas_Aleatorias {
 
     private static int PosicionAleatoria(double[] arrayPorcentaje, double porcentaje) {
         Random random = new Random();
-        Double numAleatorio = random.nextDouble() * porcentaje;
+        double numAleatorio = random.nextDouble() * porcentaje;
         double valorArray = arrayPorcentaje[0];
         int punteroArray = 1;
 
