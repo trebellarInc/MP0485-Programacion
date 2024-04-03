@@ -14,11 +14,18 @@ public class Main {
             System.out.println(Fechas.fechaEntre(inicio, fin));
         }
 */
+        /*
+
         String dniTest1 = "44083909v";
         String dniTest2 = "44083910V";
         String dniTest3 = "12345678Z";
-        System.out.println(Id_esp.esValidoDNI(dniTest1));
-        System.out.println(Id_esp.esValidoDNI(dniTest2));
-        System.out.println(Id_esp.esValidoDNI(dniTest3));
-          }
+        System.out.println(Id_Esp.esValidoDNI(dniTest1));
+        System.out.println(Id_Esp.esValidoDNI(dniTest2));
+        System.out.println(Id_Esp.esValidoDNI(dniTest3));
+
+         */
+
+
+
+    }
 }

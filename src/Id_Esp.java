@@ -1,7 +1,7 @@
 // DNI NIF NIE CIF etc... en creación.
 
 
-public class Id_esp {
+public class Id_Esp {
     private static final String letrasValidasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 
     // El Ministerio del Interior establece que el número del Documento Nacional de Identidad es realmente lo que se
@@ -15,13 +15,15 @@ public class Id_esp {
         boolean retorno = false;
 
         if (esFormatoValidoDNI(cadena)) {
+            /*
             char letraCadena = cadena.charAt(8);
             char letraCalculada = calcularLetra(cadena);
-            retorno = (letraCalculada == letraCadena) ? true : false;
-            /* if (letraCalculada == letraCadena){
+             if (letraCalculada == letraCadena){
                 retorno = true;
-            }*/
-            System.out.println("letra de la cadena -> " + letraCadena + "\nletra calculada    -> " + letraCalculada);
+            }
+            */
+            retorno = (cadena.charAt(8) == calcularLetra(cadena)) ? true : false;
+            System.out.println("letra -> " + cadena.charAt(8) + " = " + calcularLetra(cadena)+ " ?");
         }
         return retorno;
     }
@@ -29,8 +31,7 @@ public class Id_esp {
     // Calcula la letra del DNI/NIE a partir de los 8 digitos.
     public static char calcularLetra(String cadena) {
         int numero = Integer.parseInt(cadena.substring(0, 8));
-        char letra = letrasValidasDNI.charAt(numero % 23);
-        return letra;
+        return letrasValidasDNI.charAt(numero % 23);
     }
 
     // Determina si el formato de dato del DNI es valido o no.

@@ -20,11 +20,10 @@ public class Personas_Aleatorias {
     final private static double porcentajeA = 372.4;
 
     public static void main(String[] args) {
-        Random random = new Random();
+        //Random random = new Random();
 
         for (int i = 0; i <= 10; i++) {
-            String[] nombreApellido = {"", "", ""};
-
+            String[] nombreApellido;
             nombreApellido = nombreApellidosAleatorios();
             System.out.println(nombreApellido[0] + " " + nombreApellido[1] + " " + nombreApellido[2]);
         }
