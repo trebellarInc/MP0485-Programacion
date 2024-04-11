@@ -1,5 +1,5 @@
 // DNI NIF NIE CIF etc... en creación.
-
+// 48.592.909 Habitantes en España 1 Enero de 2024
 
 public class Id_Esp {
     private static final String letrasValidasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -23,7 +23,7 @@ public class Id_Esp {
             }
             */
             retorno = (cadena.charAt(8) == calcularLetra(cadena)) ? true : false;
-            System.out.println("letra -> " + cadena.charAt(8) + " = " + calcularLetra(cadena)+ " ?");
+            System.out.println("letra -> " + cadena.charAt(8) + " = " + calcularLetra(cadena) + " ?");
         }
         return retorno;
     }
@@ -71,19 +71,21 @@ public class Id_Esp {
     // LETRA 	T 	R 	W 	A 	G 	M 	Y 	F 	P 	D 	X 	B   N 	J 	Z 	S 	Q 	V 	H 	L 	C 	K 	E
     //TRWAGMYFPDXBNJZSQVHLCKE
 
-   /*
+    /*
 
-    NIE ADDDDDDDC
-    Los NIE's de extranjeros residentes en España tienen una letra (X, Y, Z), 7 números y dígito de control.
+     NIE ADDDDDDDC
+     Los NIE's de extranjeros residentes en España tienen una letra (X, Y, Z), 7 números y dígito de control.
 
-Para el cálculo del dígito de control se sustituye:
+ Para el cálculo del dígito de control se sustituye:
 
-    X → 0
-    Y → 1
-    Z → 2
+     X → 0
+     Y → 1
+     Z → 2
 
-y se aplica el mismo algoritmo que para el NIF.
-    */
-
-
+ y se aplica el mismo algoritmo que para el NIF.
+     */
+    public static String generaDNI(int min, int max) {
+        String dni = String.valueOf((int) Numero.generaDouble(min, max));
+        return dni = dni + calcularLetra(dni);
+    }
 }

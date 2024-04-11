@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Numeros {
+public class Numero {
 
     public static int generaInt(int min, int max) {
         // Metodo 1

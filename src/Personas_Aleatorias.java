@@ -18,23 +18,12 @@ public class Personas_Aleatorias {
     final private static String[] apellido = {"GARCIA", "RODRIGUEZ", "GONZALEZ", "FERNANDEZ", "LOPEZ", "MARTINEZ", "SANCHEZ", "PEREZ", "GOMEZ", "MARTIN", "JIMENEZ", "HERNANDEZ", "RUIZ", "DIAZ", "MORENO", "MUÑOZ", "ALVAREZ", "ROMERO", "GUTIERREZ", "ALONSO", "NAVARRO", "TORRES", "DOMINGUEZ", "RAMOS", "VAZQUEZ", "RAMIREZ", "GIL", "SERRANO", "MORALES", "MOLINA", "BLANCO", "SUAREZ", "CASTRO", "ORTEGA", "DELGADO", "ORTIZ", "MARIN", "RUBIO", "NUÑEZ", "MEDINA", "SANZ", "CASTILLO", "IGLESIAS", "CORTES", "GARRIDO", "SANTOS", "GUERRERO", "LOZANO", "CANO", "CRUZ", "MENDEZ", "FLORES", "PRIETO", "HERRERA", "PEÑA", "LEON", "MARQUEZ", "CABRERA", "GALLEGO", "CALVO", "VIDAL", "CAMPOS", "REYES", "VEGA", "FUENTES", "CARRASCO", "DIEZ", "AGUILAR", "CABALLERO", "NIETO", "SANTANA", "VARGAS", "PASCUAL", "GIMENEZ", "HERRERO", "HIDALGO", "MONTERO", "LORENZO", "SANTIAGO", "BENITEZ", "DURAN", "IBAÑEZ", "ARIAS", "MORA", "FERRER", "CARMONA", "VICENTE", "ROJAS", "SOTO", "CRESPO", "ROMAN", "PASTOR", "VELASCO", "PARRA", "SAEZ", "MOYA", "BRAVO", "RIVERA", "GALLARDO", "SOLER"};
     final private static double[] porcentajeA1000 = {30.5, 19.5, 19.4, 19.0, 18.2, 17.4, 17.1, 16.3, 10.3, 10.1, 8.3, 7.8, 7.7, 7.2, 6.8, 5.9, 5.9, 4.7, 4.1, 4.1, 3.7, 3.6, 3.3, 3.1, 3.1, 3.0, 2.9, 2.7, 2.6, 2.6, 2.6, 2.5, 2.5, 2.5, 2.5, 2.3, 2.2, 2.2, 1.9, 1.9, 1.9, 1.9, 1.8, 1.8, 1.8, 1.8, 1.7, 1.7, 1.6, 1.6, 1.6, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.4, 1.4, 1.4, 1.4, 1.4, 1.4, 1.4, 1.3, 1.3, 1.3, 1.3, 1.3, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9, 0.9, 0.9, 0.9};
     final private static double porcentajeA = 372.4;
-
-    public static void main(String[] args) {
-        //Random random = new Random();
-
-        for (int i = 0; i <= 10; i++) {
-            String[] nombreApellido;
-            nombreApellido = nombreApellidosAleatorios();
-            System.out.println(nombreApellido[0] + " " + nombreApellido[1] + " " + nombreApellido[2]);
-        }
-    }
+    private static Random random = new Random();
 
     private static int PosicionAleatoria(double[] arrayPorcentaje, double porcentaje) {
-        Random random = new Random();
         double numAleatorio = random.nextDouble() * porcentaje;
         double valorArray = arrayPorcentaje[0];
         int punteroArray = 1;
-
         while (numAleatorio > valorArray) {
             valorArray = valorArray + arrayPorcentaje[punteroArray];
             punteroArray++;
@@ -42,8 +31,7 @@ public class Personas_Aleatorias {
         return punteroArray - 1;
     }
 
-    static String[] nombreApellidosAleatorios() {
-        Random random = new Random();
+    public static String[] nombreApellidosArray() {
         String[] nombreApellido = {"", "", ""};
 
         // Determina el nombre si es femenino o masculino
@@ -53,20 +41,17 @@ public class Personas_Aleatorias {
         nombreApellido[1] = apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
         nombreApellido[2] = apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
 
-        // Version antigua
-        /*
-        if (sexo == 1) {
-            nombreApellido[0] = nombreM[PosicionAleatoria(porcentajeM1000, porcentajeM)];
-            // System.out.println(nombreM[PosicionAleatoria(porcentajeM1000, porcentajeM)]
-            //         + " " + apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)] + " " + apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)] + " ");
-        } else {
-            nombreApellido[0] = nombreF[PosicionAleatoria(porcentajeF1000, porcentajeF)];
-            //       System.out.println(nombreF[PosicionAleatoria(porcentajeF1000, porcentajeF)]
-            //       + " " + apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)] + " " + apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)] + " ");
-
-        }
-        */
         return nombreApellido;
+    }
+
+    public static String nombre() {
+        // Determina el nombre si es femenino o masculino
+        int sexo = random.nextInt(2);
+        return (sexo == 1) ? nombreM[PosicionAleatoria(porcentajeM1000, porcentajeM)] : nombreF[PosicionAleatoria(porcentajeF1000, porcentajeF)];
+    }
+
+    public static String apellido() {
+        return apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
     }
 
 }
