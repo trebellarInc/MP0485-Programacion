@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.UUID;
 
 public class Numero {
 
@@ -16,4 +17,16 @@ public class Numero {
         // Se suma 1 al Max para que sea inclusivo
         return (Math.random() * ((max + 1) - min)) + min;
     }
+
+    /**
+     * Un identificador único universal o universally unique identifier (UUID) es un número de 128 bits,
+     * con lo que el número de posibles UUID diferentes sería de 2128, o unos 3,4 × 1038
+     *
+     * @return
+     */
+    public static UUID generaUuid() {
+        UUID uuid = UUID.randomUUID();
+        return uuid;
+    }
+
 }

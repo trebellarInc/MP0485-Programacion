@@ -4,28 +4,34 @@ import java.util.HashMap;
 
 public class Conexion_Datos {
 
-
+    /**
+     * Carga usuarios de ejemplo en el mapa de usuarios.
+     * El indice sera el nombre de usuario y sera unico e inmutable por eso no tiene la clase la opcion set.
+     * Luego se guarda el objeto de usuario en el mapa.
+     */
     public static void cargaUsuariosTest(HashMap<String, Usuario> mapa) {
-
-        Usuario user1 = new Usuario("nacho", "qweads");
-        Usuario user2 = new Usuario("maria", "qweads");
+        Usuario user1 = new Usuario("nacho", "qweasd");
+        Usuario user2 = new Usuario("maria", "qweasd");
         Usuario user3 = new Usuario("anxo", "asdqwe");
         Usuario user4 = new Usuario("maria", "asdqwe");
-
+        Usuario user5 = new Usuario("admin", "admin");
         // user1.setActivo(false);
         mapa.put(user1.getNombre(), user1);
         mapa.put(user2.getNombre(), user2);
         mapa.put(user3.getNombre(), user3);
         mapa.put(user4.getNombre(), user4);
+        mapa.put(user5.getNombre(), user5);
 
         System.out.println("Carga de usuarios");
-
     }
 
+    /**
+     * Carga pilotos de formula 1 de 2024 - Abril en el mapa de pilotos.
+     * El indice sera el dorsal de este piloto y sera unico e inmutable por eso no tiene la clase la opcion set.
+     * Luego se guarda el objeto de piloto en el mapa.
+     */
     public static void cargaPilotos(HashMap<Integer, Piloto> mapa) {
-
         DateTimeFormatter yMd = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-
         Piloto pilotos1 = new Piloto(1,
                 "Max Verstappen",
                 "Red Bull Racing",
@@ -76,14 +82,4 @@ public class Conexion_Datos {
         mapa.put(pilotos21.getDorsal(), pilotos21);
         System.out.println("Carga de pilotos");
     }
-
-
-
-/*
-21 oct 1978
-36005
-anx3Bb
-/* 44088235H */
-
-
 }

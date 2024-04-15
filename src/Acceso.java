@@ -1,0 +1,31 @@
+import java.util.HashMap;
+
+public class Acceso {
+
+    public static boolean login(String user, String pass, HashMap<String, Usuario> mapa) {
+        boolean retorno = false;
+
+        if (mapa.containsKey(user)) {
+            //System.out.print("El código " + user + " corresponde a ");
+            //System.out.println(mapa.get(user));
+            if (mapa.get(user).getPasswd().equals(Cifrado.md5(pass))) {
+                if (mapa.get(user).isActivo() == true) {
+                    //System.out.println("Acceso correcto");
+                    Texto.verde("Acceso correcto.");
+                    retorno = true;
+                } else {
+                    //System.out.println("Acceso denegado - usuario no activo");
+                    Texto.rojo("Acceso denegado - usuario no activo.");
+                }
+            } else {
+                //System.out.println("Acceso denegado - clave incorrecta.");
+                Texto.rojo("Acceso denegado - clave incorrecta.");
+            }
+        } else {
+            //System.out.print("Acceso denegado - el usuario " + user + " no existe.");
+            Texto.rojo("Acceso denegado - el usuario " + user + " no existe.");
+        }
+        return retorno;
+    }
+
+}

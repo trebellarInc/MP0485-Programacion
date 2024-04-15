@@ -42,10 +42,6 @@ public class Piloto {
         return nacionalidad;
     }
 
-    public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -53,7 +49,6 @@ public class Piloto {
     public void setEscuderia(String escuderia) {
         this.escuderia = escuderia;
     }
-
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
@@ -64,5 +59,17 @@ public class Piloto {
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Piloto{" +
+                "dorsal=" + dorsal +
+                ", nombre='" + nombre + '\'' +
+                ", escuderia='" + escuderia + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", puntos=" + puntos +
+                ", nacionalidad='" + nacionalidad + '\'' +
+                '}';
     }
 }
