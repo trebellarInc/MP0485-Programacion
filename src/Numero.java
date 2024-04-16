@@ -11,11 +11,17 @@ public class Numero {
         return rand.nextInt((max + 1) - min) + min;
     }
 
-    public static double generaDouble(int min, int max) {
+    public static int generaInt2(int minimo, int maximo) {
+        // Profesora
+        //int num=(int)Math.floor(Math.random()*(minimo-(maximo+1))+(maximo+1));
+        return (int) Math.floor(Math.random() * (minimo - (maximo + 1)) + (maximo + 1));
+    }
+
+    public static double generaDouble(int minimo, int maximo) {
         // Metodo 2
         // Esto generará un número aleatorio entre min (inclusive) y max (exclusivo).
         // Se suma 1 al Max para que sea inclusivo
-        return (Math.random() * ((max + 1) - min)) + min;
+        return (Math.random() * ((maximo + 1) - minimo)) + minimo;
     }
 
     /**
@@ -28,5 +34,6 @@ public class Numero {
         UUID uuid = UUID.randomUUID();
         return uuid;
     }
+
 
 }

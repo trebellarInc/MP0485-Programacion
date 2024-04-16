@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Texto {
     static String SEPARADOR = "--------------------------------";
     static String ANSI_RESET = "\u001B[0m";
@@ -16,6 +18,7 @@ public class Texto {
                 ANSI_RESET);
 
     }
+
     public static void menuAcceso() {
 
         System.out.println(ANSI_GREEN + SEPARADOR +
@@ -32,6 +35,19 @@ public class Texto {
         System.out.println(ANSI_GREEN + texto + ANSI_RESET);
     }
 
+    public static void cyan(String texto) {
+        System.out.println(ANSI_CYAN + texto + ANSI_RESET);
+    }
+
+    public static void pulsaTecla(){
+        System.out.println("Pulsa una ENTER4 para continuar.");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public static void menuPrincipal() {
 
@@ -39,9 +55,9 @@ public class Texto {
                 "\n\t\tMenu - Principal" +
                 "\n" + SEPARADOR + ANSI_PURPLE +
                 "\n\t1 - Carga" +
-                "\n\t-" +
-                "\n\t-" +
-                "\n\t-" +
+                "\n\t2 - Guarda usuarios a archivo" +
+                "\n\t3 - Carga usuarios desde archivo" +
+                "\n\t4 - Imprime los usuarios" +
                 "\n\t-" +
                 "\n\t-" +
                 "\n\t-" +

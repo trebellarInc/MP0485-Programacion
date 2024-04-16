@@ -1,19 +1,22 @@
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
+    // Se crean los mapas de Usuarios y pilotos
+    static HashMap<String, Usuario> mapaUsuarios = new HashMap<>();
+    static HashMap<Integer, Piloto> mapaPilotos = new HashMap<>();
+
     // Valiables globales de acceso
     static boolean banderaAccesoAutorizado = false;
     static boolean banderaSalir = false;
     static final int INTENTOS_LOGIN = 3;
 
     public static void main(String[] args) {
-        // Se crean los mapas de Usuarios y pilotos
-        HashMap<String, Usuario> mapaUsuarios = new HashMap<>();
-        HashMap<Integer, Piloto> mapaPilotos = new HashMap<>();
 
         // Se cargan los datos, sean ficticios, API, base de datos...
-        Conexion_Datos.cargaUsuariosTest(mapaUsuarios);
+        mapaUsuarios = Conexion_Datos.cargaUsuariosArchivo();
+        // Conexion_Datos.UsuariosTets(mapaUsuarios);
         Conexion_Datos.cargaPilotos(mapaPilotos);
 
         // Objeto para leer desde el teclado
@@ -22,6 +25,9 @@ public class Main {
 
         String userIntroducido = "";
         String passIntroducido = "";
+
+        // no pedir user y pass
+        banderaAccesoAutorizado = true;
 
         //System.out.println(mapaUsuarios);
         //System.out.println(mapaPilotos);
@@ -130,11 +136,19 @@ public class Main {
             switch (opcion) {
                 case 1:
 
+                case 2:
+                    Conexion_Datos.guardaUsuariosArchivo(mapaUsuarios);
+                    break;
+                case 3:
+                    mapaUsuarios = Conexion_Datos.cargaUsuariosArchivo();
+                    break;
+                case 4:
+                    imprimeMapaUsuarios();
+                    break;
                 case 9:
                     banderaAccesoAutorizado = false;
                     opcion = 0;
                     break;
-
                 case 0:
                     banderaSalir = true;
                     break;
@@ -149,4 +163,17 @@ public class Main {
 
 
     }
+
+
+    public static void imprimeMapaUsuarios(){
+        DateTimeFormatter yMd = DateTimeFormatter.ofPattern("yyyy-MM-dd' T 'HH:mm:ss");
+        System.out.println("----------------------------------------------------------------------------");
+        for (Usuario user : mapaUsuarios.values()){
+            System.out.println("Usuario -> "+ user.getNombre() +" \t(Activo - "+user.isActivo()+") \t\t Ingreso = " + user.getFechaIngreso().format(yMd));
+        }
+        System.out.println("----------------------------------------------------------------------------");
+        Texto.pulsaTecla();
+    }
+
+
 }

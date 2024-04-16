@@ -1,3 +1,4 @@
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -9,7 +10,46 @@ public class Conexion_Datos {
      * El indice sera el nombre de usuario y sera unico e inmutable por eso no tiene la clase la opcion set.
      * Luego se guarda el objeto de usuario en el mapa.
      */
-    public static void cargaUsuariosTest(HashMap<String, Usuario> mapa) {
+    public static void cargaUsuarios(HashMap<String, Usuario> mapa) {
+        // datos de prueba
+        UsuariosTets(mapa);
+
+        // Cargar desde archivo binario
+        //UsuarioDesdeArchivoBinario(mapa);
+    }
+
+
+    static void guardaUsuariosArchivo(HashMap<String, Usuario> mapa) {
+        File file = new File("usuarios.data");
+        try (FileOutputStream fileOutput = new FileOutputStream(file);
+             ObjectOutputStream objectStream = new  ObjectOutputStream(fileOutput)) {
+            objectStream.writeObject(mapa);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static HashMap<String, Usuario> cargaUsuariosArchivo(){
+        HashMap<String, Usuario> mapa;
+        File file = new File("usuarios.data");
+        try (FileInputStream fileReader = new FileInputStream(file);
+             ObjectInputStream objectStream = new ObjectInputStream(fileReader)) {
+            mapa = (HashMap<String, Usuario>) objectStream.readObject();
+            Texto.cyan("Carga usuarios correcta.");
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return mapa;
+    }
+
+
+    static void UsuariosTets(HashMap<String, Usuario> mapa){
         Usuario user1 = new Usuario("nacho", "qweasd");
         Usuario user2 = new Usuario("maria", "qweasd");
         Usuario user3 = new Usuario("anxo", "asdqwe");
@@ -23,7 +63,10 @@ public class Conexion_Datos {
         mapa.put(user5.getNombre(), user5);
 
         System.out.println("Carga de usuarios");
+
     }
+
+
 
     /**
      * Carga pilotos de formula 1 de 2024 - Abril en el mapa de pilotos.
