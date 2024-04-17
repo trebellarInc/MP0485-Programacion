@@ -13,24 +13,22 @@ public class Main {
     static final int INTENTOS_LOGIN = 3;
 
     public static void main(String[] args) {
+        // Objeto para leer desde el teclado
+        Scanner leerTeclado = new Scanner(System.in);
 
         // Se cargan los datos, sean ficticios, API, base de datos...
         mapaUsuarios = Conexion_Datos.cargaUsuariosArchivo();
         // Conexion_Datos.UsuariosTets(mapaUsuarios);
         Conexion_Datos.cargaPilotos(mapaPilotos);
 
-        // Objeto para leer desde el teclado
-        Scanner leerTeclado = new Scanner(System.in);
 
 
-        String userIntroducido = "";
-        String passIntroducido = "";
+        String userIntroducido ;
+        String passIntroducido ;
 
         // no pedir user y pass
         banderaAccesoAutorizado = true;
 
-        //System.out.println(mapaUsuarios);
-        //System.out.println(mapaPilotos);
 
         //  Este while se repite siempre hasta que banderaSalir sea true, es la salida del programa
         while (banderaSalir == false) {
@@ -72,9 +70,7 @@ public class Main {
                 }
             }
         }
-
-        System.out.println("¡Hasta la próxima! \n¡Esperamos verte pronto!\n" +
-                "\n");
+        System.out.println("¡Hasta la próxima! \n¡Esperamos verte pronto!\n" + "\n");
         /*
 
         JFrame ventana = new JFrame("Ventana");
@@ -165,11 +161,11 @@ public class Main {
     }
 
 
-    public static void imprimeMapaUsuarios(){
+    public static void imprimeMapaUsuarios() {
         DateTimeFormatter yMd = DateTimeFormatter.ofPattern("yyyy-MM-dd' T 'HH:mm:ss");
         System.out.println("----------------------------------------------------------------------------");
-        for (Usuario user : mapaUsuarios.values()){
-            System.out.println("Usuario -> "+ user.getNombre() +" \t(Activo - "+user.isActivo()+") \t\t Ingreso = " + user.getFechaIngreso().format(yMd));
+        for (Usuario user : mapaUsuarios.values()) {
+            System.out.println("Usuario -> " + user.getNombre() + " \t(Activo - " + user.isActivo() + ") \t\t Ingreso = " + user.getFechaIngreso().format(yMd));
         }
         System.out.println("----------------------------------------------------------------------------");
         Texto.pulsaTecla();

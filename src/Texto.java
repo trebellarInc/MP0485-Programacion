@@ -40,7 +40,7 @@ public class Texto {
     }
 
     public static void pulsaTecla(){
-        System.out.println("Pulsa una ENTER4 para continuar.");
+        System.out.println("Pulsa una ENTER para continuar.");
         try {
             System.in.read();
         } catch (IOException e) {
