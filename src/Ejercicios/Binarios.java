@@ -31,14 +31,15 @@ public class Binarios {
         JFileChooser fc = new JFileChooser();
         fc.setCurrentDirectory(pathDefecto);
 
+        // Pregunta el fichero de origen a copiar
         fc.showDialog(new JFrame(), "Copiar");
         ficheroOrigen = fc.getSelectedFile();
         System.out.println(ficheroOrigen.getParentFile());
         System.out.println(ficheroOrigen.getName());
 
+        // Pregunta el fichero de destino
         fc.showSaveDialog(new JFrame());
         ficheroDestino = fc.getSelectedFile();
-
 
         System.out.println("Origen  -> " + ficheroOrigen);
         System.out.println("Destino -> " + ficheroDestino);
@@ -92,8 +93,23 @@ public class Binarios {
 
 
 
+
+
+
         return extension;
     }
+
+
+
+    /*
+    Pablo *Lago* (c)
+    Nacho *Limetre*
+    Ivan *Montans*
+    Juan *de Sola*
+    Pablo *Romero*
+    José *Jardón*
+    Brais (Becario)
+    */
 
 
 }
