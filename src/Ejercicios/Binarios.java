@@ -3,6 +3,7 @@ package Ejercicios;
 
 import javax.swing.*;
 import java.io.*;
+import java.nio.file.FileSystems;
 
 /**
  * @author Nacho Limetre
@@ -23,7 +24,9 @@ public class Binarios {
         byte[] buffer;
         // Frame_Response = new byte[];
 
-        File pathDefecto = new File(System.getProperty("user.home") + System.getProperty("file.separator") + "dev\\java\\tbl\\src\\ficheros");
+
+        // Se cambia System.getProperty por  FileSystems.getDefault().getSeparator()
+        File pathDefecto = new File(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + "dev\\java\\tbl\\src\\ficheros");
         File ficheroOrigen;
         File ficheroDestino;
 
@@ -36,10 +39,16 @@ public class Binarios {
         ficheroOrigen = fc.getSelectedFile();
         System.out.println(ficheroOrigen.getParentFile());
         System.out.println(ficheroOrigen.getName());
+        System.out.println(obtenerExtension(ficheroOrigen.getName()));
 
         // Pregunta el fichero de destino
         fc.showSaveDialog(new JFrame());
         ficheroDestino = fc.getSelectedFile();
+
+        // El fichero a copiar se llamara igual pero con un añadido en el nombre de backup
+        ficheroDestino = new File(ficheroOrigen.getParentFile() + FileSystems.getDefault().getSeparator() + obtenerNombre(ficheroOrigen.getName()) + "_backup." + obtenerExtension(ficheroOrigen.getName()));
+
+
 
         System.out.println("Origen  -> " + ficheroOrigen);
         System.out.println("Destino -> " + ficheroDestino);
@@ -88,16 +97,42 @@ public class Binarios {
     }
 
 
-    private String obtenerExtensionArchivo(File fichero){
+    private static String obtenerExtension(File fichero){
         String extension ="";
-
-
-
-
-
-
+        int i = fichero.toString().lastIndexOf('.');
+        if (i >= 0) {
+            extension = fichero.toString().substring(i+1);
+        }
         return extension;
     }
+
+    private static String obtenerExtension(String fichero){
+        String extension ="";
+        int i = fichero.lastIndexOf('.');
+        if (i >= 0) {
+            extension = fichero.substring(i+1);
+        }
+        return extension;
+    }
+
+    private static String obtenerNombre(File fichero){
+        String nombreSinExtension ="";
+        int i = fichero.toString().lastIndexOf('.');
+        if (i >= 0) {
+            nombreSinExtension = fichero.toString().substring(0, i);
+        }
+        return nombreSinExtension;
+    }
+
+    private static String obtenerNombre(String fichero){
+        String nombreSinExtension ="";
+        int i = fichero.lastIndexOf('.');
+        if (i >= 0) {
+            nombreSinExtension = fichero.substring(0, i);
+        }
+        return nombreSinExtension;
+    }
+
 
 
 
