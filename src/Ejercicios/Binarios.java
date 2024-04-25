@@ -80,7 +80,7 @@ public class Binarios {
 
         } catch (FileNotFoundException e) {
             System.err.println("Error\n" + e.getMessage());
-            ;
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
