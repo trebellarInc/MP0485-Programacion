@@ -24,7 +24,6 @@ public class Binarios {
         byte[] buffer;
         // Frame_Response = new byte[];
 
-
         // Se cambia System.getProperty por  FileSystems.getDefault().getSeparator()
         File pathDefecto = new File(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + "dev\\java\\tbl\\src\\ficheros");
         File ficheroOrigen;
@@ -86,7 +85,6 @@ public class Binarios {
         }
 
         //fc.showOpenDialog(new JFrame());
-
 
         // JOptionPane.showMessageDialog(new JFrame(), "Erro ao salvar arquivo", "mensaje ", JOptionPane.ERROR_MESSAGE);
 
