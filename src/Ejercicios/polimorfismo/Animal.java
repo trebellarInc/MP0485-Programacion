@@ -2,7 +2,6 @@ package Ejercicios.polimorfismo;
 
 public class Animal {
 
-
     String nombre ;
     int edad;
 
@@ -26,6 +25,11 @@ public class Animal {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+
+    public void comunicacion (){
+        System.out.println("Hace un sonido");
     }
 
     @Override
