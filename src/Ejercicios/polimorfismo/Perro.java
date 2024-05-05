@@ -1,7 +1,7 @@
 package Ejercicios.polimorfismo;
 
 public class Perro extends Animal{
-    Boolean raboLargo = false;
+    Boolean raboLargo ;
     String tipo = "PERRO";
 
     public Perro(String nombre, int edad, Boolean raboLargo, String tipo) {

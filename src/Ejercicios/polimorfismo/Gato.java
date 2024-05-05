@@ -2,7 +2,7 @@ package Ejercicios.polimorfismo;
 
 public class Gato extends Animal{
 
-private Boolean bigotesLargos = false;
+private Boolean bigotesLargos ;
 private String tipo = "GATO";
 
     public Gato(String nombre, int edad, Boolean bigotesLargos, String tipo) {
