@@ -1,13 +1,13 @@
 package Ejercicios.polimorfismo;
 
 public class Perro extends Animal{
-    Boolean raboLargo ;
-    String tipo = "PERRO";
+   private Boolean raboLargo ;
+    private String tipo = "PERRO";
 
-    public Perro(String nombre, int edad, Boolean raboLargo, String tipo) {
+    public Perro(String nombre, int edad, Boolean raboLargo) {
         super(nombre, edad);
         this.raboLargo = raboLargo;
-        this.tipo = tipo;
+
     }
 
     public Boolean getRaboLargo() {

@@ -5,10 +5,10 @@ public class Gato extends Animal{
 private Boolean bigotesLargos ;
 private String tipo = "GATO";
 
-    public Gato(String nombre, int edad, Boolean bigotesLargos, String tipo) {
+    public Gato(String nombre, int edad, Boolean bigotesLargos) {
         super(nombre, edad);
         this.bigotesLargos = bigotesLargos;
-        this.tipo = tipo;
+
     }
 
     public Boolean getBigotesLargos() {
