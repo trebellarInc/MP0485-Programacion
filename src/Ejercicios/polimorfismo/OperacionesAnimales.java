@@ -1,7 +1,6 @@
 package Ejercicios.polimorfismo;
 
 
-
 /**
  * Dicha clase podrá guardar información sobre cinco perros y cinco gatos.
  * Debes hacer uso de arrays estáticos de tamaño 5.
@@ -11,46 +10,7 @@ public class OperacionesAnimales {
     static Perro[] animalesPerro = new Perro[MAXIMONumeroAnimales];
     static Gato[] animalesGato = new Gato[MAXIMONumeroAnimales];
 
-    public static void main(String[] args) {
 
-        System.out.println(animalesPerro.length);
-
-        addPerro(new Perro("Cooper", 8, true));
-        addPerro(new Perro("Golfo", 2, false));
-        addPerro(new Perro("Snoopy", 12, false));
-        addPerro(new Perro("Toto", 7, true));
-        addPerro(new Perro("Laika", 5, true));
-        addPerro(new Perro("Desborde", 1, false));
-
-        /*
-        animalesGato[0] = new Gato("Garfield", 3, true);
-        animalesGato[1] = new Gato("Silvestre", 10, true);
-        animalesGato[2] = new Gato("Kitty", 5, true);
-        animalesGato[3] = new Gato("Cheshire", 201, false);
-        animalesGato[4] = new Gato("Doraemon", 55, false);
-         */
-
-
-        for (Perro p : animalesPerro) {
-
-            if (p == null) {
-                System.out.println("no hay perros");
-            }
-
-            // System.out.println(p.toString() + " " + p.getTipo());
-        }
-
-        /*
-        for (Gato g : animalesGato) {
-            System.out.println(g.toString() + " " + g.getTipo());
-        }
-        */
-
-
-        System.out.println("Tamaño del array de Perros -> " + animalesPerro.length);
-        System.out.println("Tamaño del array de Gatos -> " + animalesGato.length);
-
-    }
 
     /**
      * Dispondrá de un método addPerro(Perro perro) que permitirá añadir un perro (de los cinco posibles).
@@ -60,21 +20,67 @@ public class OperacionesAnimales {
      */
     public static boolean addPerro(Perro perro) {
         boolean retorno = false;
+        boolean arrayLleno = false;
+
+        // System.out.println("Perro a añadir -> " + perro.toString());
         int i = 0;
-        for (Perro p : animalesPerro) {
-            if (p == null && retorno == false) {
-                System.out.println("no hay perros y se añade en la posicion -> " + i);
+
+        while (arrayLleno == false && !retorno) {
+            if (animalesPerro[i] == null) {
                 animalesPerro[i] = perro;
-                System.out.println(animalesPerro[i].toString());
+                System.out.println("Se añade - " + animalesPerro[i] + " - [" + i + "]");
                 retorno = true;
             }
             i++;
-            if (i == (MAXIMONumeroAnimales - 1)){
-                System.err.println("No se puede añadir mas" + i);
+            if (i == (MAXIMONumeroAnimales)) {
+                //System.out.println("El array esta lleno. " + i + " de " + MAXIMONumeroAnimales);
+                arrayLleno = true;
             }
         }
-
-    return retorno;
+        return retorno;
     }
+
+    public static boolean addGato(Gato gato) {
+        boolean retorno = false;
+        boolean arrayLleno = false;
+
+        // System.out.println("Perro a añadir -> " + perro.toString());
+        int i = 0;
+
+        while (arrayLleno == false && !retorno) {
+            if (animalesGato[i] == null) {
+                animalesGato[i] = gato;
+                System.out.println("Se añade - " + animalesGato[i] + " - [" + i + "]");
+                retorno = true;
+            }
+            i++;
+            if (i == (MAXIMONumeroAnimales)) {
+                //System.out.println("El array esta lleno. " + i + " de " + MAXIMONumeroAnimales);
+                arrayLleno = true;
+            }
+        }
+        return retorno;
+    }
+
+/**
+ * Dispondrá de un método guardarAnimalesADisco(String fichero) en el que se guardarán
+ * todos los objetos que se encuentren en los dos arrays (perros / gatos). Como no
+ * sabemos crear arrays dinámicos, escribiremos en el fichero, antes de los objetos, el
+ * número de objetos total que vamos a escribir.
+ */
+
+
+
+
+ /**
+ * • Dispondrá de un método leerAnimalesDisco(String fichero) que leerá de disco los
+ * objetos guardados del paso anterior. Primero leeremos el número de animales
+ * guardados en disco para dar memoria al array que debe devolver el método. Después
+ * leeremos todos los animales que se irán guardando en el array que tenemos que
+ * devolver. Se actualizarán los datos de la clase (los arrays que guardan los gatos y los
+ * perros).
+ */
+
+
 
 }
