@@ -1,6 +1,8 @@
 package Ejercicios.polimorfismo;
 
-public class Animal {
+import java.io.Serializable;
+
+public class Animal implements Serializable {
 
     String nombre ;
     int edad;

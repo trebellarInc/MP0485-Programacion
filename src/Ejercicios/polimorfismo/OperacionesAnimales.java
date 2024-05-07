@@ -1,6 +1,8 @@
 package Ejercicios.polimorfismo;
 
 
+import java.io.*;
+
 /**
  * Dicha clase podrá guardar información sobre cinco perros y cinco gatos.
  * Debes hacer uso de arrays estáticos de tamaño 5.
@@ -9,7 +11,6 @@ public class OperacionesAnimales {
     static int MAXIMONumeroAnimales = 5;
     static Perro[] animalesPerro = new Perro[MAXIMONumeroAnimales];
     static Gato[] animalesGato = new Gato[MAXIMONumeroAnimales];
-
 
 
     /**
@@ -62,25 +63,78 @@ public class OperacionesAnimales {
         return retorno;
     }
 
-/**
- * Dispondrá de un método guardarAnimalesADisco(String fichero) en el que se guardarán
- * todos los objetos que se encuentren en los dos arrays (perros / gatos). Como no
- * sabemos crear arrays dinámicos, escribiremos en el fichero, antes de los objetos, el
- * número de objetos total que vamos a escribir.
- */
+    /**
+     * Dispondrá de un método guardarAnimalesADisco(String fichero) en el que se guardarán
+     * todos los objetos que se encuentren en los dos arrays (perros / gatos). Como no
+     * sabemos crear arrays dinámicos, escribiremos en el fichero, antes de los objetos, el
+     * número de objetos total que vamos a escribir.
+     */
+
+    public static void guardarAnimalesADisco(String fichero) {
+        File archivoDatos = new File(fichero);
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+
+        int animales = 0;
+        for (Gato g : animalesGato) {
+            animales++;
+            System.out.println(animales + " - " + g.toString());
+        }
+        for (Perro p : animalesPerro) {
+            animales++;
+            System.out.println(animales + " - " + p.toString());
+        }
+        NumeroAnimales numAnimales = new NumeroAnimales(animales);
+
+        try {
+            fos = new FileOutputStream(archivoDatos);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(numAnimales);
+            for (Gato g : animalesGato) {
+                oos.writeObject(g);
+            }
+            for (Perro p : animalesPerro) {
+                oos.writeObject(p);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    /**
+     * • Dispondrá de un método leerAnimalesDisco(String fichero) que leerá de disco los
+     * objetos guardados del paso anterior. Primero leeremos el número de animales
+     * guardados en disco para dar memoria al array que debe devolver el método. Después
+     * leeremos todos los animales que se irán guardando en el array que tenemos que
+     * devolver. Se actualizarán los datos de la clase (los arrays que guardan los gatos y los
+     * perros).
+     */
+
+    public void leerAnimalesDisco(String fichero){
+        File archivoDatos = new File(fichero);
+
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        NumeroAnimales animales = new NumeroAnimales();
+
+        try {
+            fis = new FileInputStream(archivoDatos);
+            ois = new ObjectInputStream(fis);
+
+            animales = (NumeroAnimales) ois.readObject();
+
+            System.out.println(animales.getAnimales());
 
 
 
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
- /**
- * • Dispondrá de un método leerAnimalesDisco(String fichero) que leerá de disco los
- * objetos guardados del paso anterior. Primero leeremos el número de animales
- * guardados en disco para dar memoria al array que debe devolver el método. Después
- * leeremos todos los animales que se irán guardando en el array que tenemos que
- * devolver. Se actualizarán los datos de la clase (los arrays que guardan los gatos y los
- * perros).
- */
 
+    }
 
 
 }
