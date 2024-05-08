@@ -2,6 +2,7 @@ package Ejercicios.polimorfismo;
 
 
 import java.io.*;
+import java.lang.reflect.Array;
 
 /**
  * Dicha clase podrá guardar información sobre cinco perros y cinco gatos.
@@ -111,21 +112,36 @@ public class OperacionesAnimales {
      * perros).
      */
 
-    public void leerAnimalesDisco(String fichero){
+    public static void leerAnimalesDisco(String fichero){
         File archivoDatos = new File(fichero);
 
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
-        NumeroAnimales animales = new NumeroAnimales();
+        NumeroAnimales animales = null;
+        animales = new NumeroAnimales(0);
+
 
         try {
             fis = new FileInputStream(archivoDatos);
             ois = new ObjectInputStream(fis);
 
             animales = (NumeroAnimales) ois.readObject();
+            System.out.println("Hay "+animales.getAnimales()+" animales en el fichero");
 
-            System.out.println(animales.getAnimales());
+           Animal[] listaAnimales = new Animal[animales.getAnimales()];
+
+           Animal aux =null;
+
+            for (int i = 0; i < animales.getAnimales(); i++) {
+                listaAnimales[i] = (Animal) ois.readObject();
+                System.out.println(listaAnimales[i].toString());
+
+                System.out.println(listaAnimales[i].getClass());
+
+            }
+
+
 
 
 

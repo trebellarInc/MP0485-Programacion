@@ -7,7 +7,6 @@ public class Perro extends Animal{
     public Perro(String nombre, int edad, Boolean raboLargo) {
         super(nombre, edad);
         this.raboLargo = raboLargo;
-
     }
 
     public Boolean getRaboLargo() {

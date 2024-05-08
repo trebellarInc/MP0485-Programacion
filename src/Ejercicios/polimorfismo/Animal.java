@@ -10,6 +10,7 @@ public class Animal implements Serializable {
     public Animal(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
+
     }
 
 
@@ -30,7 +31,7 @@ public class Animal implements Serializable {
     }
 
 
-    public void comunicacion (){
+    public void comunicacion() {
         System.out.println("Hace un sonido");
     }
 

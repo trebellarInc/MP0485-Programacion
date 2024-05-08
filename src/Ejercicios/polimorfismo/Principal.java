@@ -1,6 +1,6 @@
 package Ejercicios.polimorfismo;
 
-import java.io.File;
+
 
 /**
  * Crea una clase Principal con un método main que haga uso de la clase anterior.
@@ -10,6 +10,8 @@ import java.io.File;
 public class Principal {
     public static void main(String[] args) {
 
+
+/*
         OperacionesAnimales.addPerro(new Perro("Cooper", 12, true));
         OperacionesAnimales.addPerro(new Perro("Golfo", 2, false));
         OperacionesAnimales.addPerro(new Perro("Snoopy", 12, false));
@@ -25,7 +27,9 @@ public class Principal {
         System.out.println(OperacionesAnimales.addGato(new Gato("Desborde", 1, false)));
 
 
-        OperacionesAnimales.guardarAnimalesADisco("datos.txt");
+     OperacionesAnimales.guardarAnimalesADisco("datos.txt");
+*/
+        OperacionesAnimales.leerAnimalesDisco("datos.txt");
 
 
     }
