@@ -23,6 +23,15 @@ private String tipo = "GATO";
         return tipo;
     }
 
+    @Override
+    public String toString() {
+        return "Gato{" +
+                "bigotesLargos=" + bigotesLargos +
+                ", tipo='" + tipo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                '}';
+    }
 
     public void comunicacion (){
     System.out.println("MIAU");

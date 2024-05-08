@@ -2,7 +2,6 @@ package Ejercicios.polimorfismo;
 
 
 import java.io.*;
-import java.lang.reflect.Array;
 
 /**
  * Dicha clase podrá guardar información sobre cinco perros y cinco gatos.
@@ -112,7 +111,11 @@ public class OperacionesAnimales {
      * perros).
      */
 
-    public static void leerAnimalesDisco(String fichero){
+    public static void leerAnimalesDisco(String fichero) {
+        animalesPerro = new Perro[MAXIMONumeroAnimales];
+        animalesGato = new Gato[MAXIMONumeroAnimales];
+        int numPerro = 0, numGato = 0;
+
         File archivoDatos = new File(fichero);
 
         FileInputStream fis = null;
@@ -126,31 +129,44 @@ public class OperacionesAnimales {
             fis = new FileInputStream(archivoDatos);
             ois = new ObjectInputStream(fis);
 
+            // Numero de objetos de animales en el fichero la suma de gatos y perros.
             animales = (NumeroAnimales) ois.readObject();
-            System.out.println("Hay "+animales.getAnimales()+" animales en el fichero");
+            System.out.println("Hay " + animales.getAnimales() + " animales en el fichero");
 
-           Animal[] listaAnimales = new Animal[animales.getAnimales()];
+            // Se crea un array de animales con los objetos del fichero
+            Animal[] listaAnimales = new Animal[animales.getAnimales()];
 
-           Animal aux =null;
+            // Animal aux =null;
 
             for (int i = 0; i < animales.getAnimales(); i++) {
                 listaAnimales[i] = (Animal) ois.readObject();
-                System.out.println(listaAnimales[i].toString());
-
-                System.out.println(listaAnimales[i].getClass());
-
+                // System.out.println(listaAnimales[i].toString());
+                // System.out.println(listaAnimales[i].getClass().getName().toLowerCase());
+                if (listaAnimales[i].getClass().getName().toLowerCase().contains("perro")) {
+                    animalesPerro[numPerro] = (Perro) listaAnimales[i];
+                    numPerro++;
+                }
+                if (listaAnimales[i].getClass().getName().toLowerCase().contains("gato")) {
+                    animalesGato[numGato] = (Gato) listaAnimales[i];
+                    numGato++;
+                }
             }
-
-
-
-
-
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
+
+
+    public static void muestraGatos (){
+        for (Gato g :animalesGato){
+            System.out.println(g.toString());
+        }
+    }
+    public static void muestraPerros (){
+        for (Perro g :animalesPerro){
+            System.out.println(g.toString());
+        }
+    }
 
 }

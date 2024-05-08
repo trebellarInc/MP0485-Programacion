@@ -21,6 +21,16 @@ public class Perro extends Animal{
         return tipo;
     }
 
+    @Override
+    public String toString() {
+        return "Perro{" +
+                "raboLargo=" + raboLargo +
+                ", tipo='" + tipo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                '}';
+    }
+
     public void comunicacion (){
         System.out.println("GUAU");
     }
