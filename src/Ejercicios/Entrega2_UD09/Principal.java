@@ -10,10 +10,25 @@ public class Principal {
 
         ArrayList<Cliente> listaClientes =  new ArrayList<>();
 
-        Cliente c1 = new Cliente(1,"Pablo",20801234);
+        Cliente c1 = new Cliente(1,"Pablo",20803450316149607520d);
+        Cliente c2 = new Cliente(1,"Juan",20802633852972888707d);
+        Cliente c3 = new Cliente(1,"Pablo",20803648154689192430d);
+
+
+
 
 
          listaClientes.add(c1);
+         listaClientes.add(c2);
+         listaClientes.add(c3);
+
+
+
+         for (Cliente c : listaClientes){
+             System.out.println(c.getCuenta());
+        c.show();
+         }
+
 
     }
 }
