@@ -4,12 +4,12 @@ public class Cliente {
 
     int id;
     String nombre;
-    double cuenta;
+    double saldoCuenta;
 
-    public Cliente(int id, String nombre, double cuenta) {
+    public Cliente(int id, String nombre, double saldoCuenta) {
         this.id = id;
         this.nombre = nombre;
-        this.cuenta = cuenta;
+        this.saldoCuenta = saldoCuenta;
     }
 
     public Cliente() {
@@ -31,16 +31,16 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public double getCuenta() {
-        return cuenta;
+    public double getSaldoCuenta() {
+        return saldoCuenta;
     }
 
-    public void setCuenta(double cuenta) {
-        this.cuenta = cuenta;
+    public void setSaldoCuenta(double saldoCuenta) {
+        this.saldoCuenta = saldoCuenta;
     }
 
     public void show() {
-        System.out.println(id +" "+ nombre +" "+ cuenta);
+        System.out.println(id +" "+ nombre +" "+ saldoCuenta + " €");
     }
 
 
