@@ -1,3 +1,5 @@
+package Utiles;
+
 import java.io.IOException;
 
 public class Texto {
@@ -22,7 +24,7 @@ public class Texto {
     public static void menuAcceso() {
 
         System.out.println(ANSI_GREEN + SEPARADOR +
-                "\n\t\tMenu - Acceso" +
+                "\n\t\tMenu - Utiles.Acceso" +
                 "\n" + SEPARADOR + ANSI_RESET);
 
     }

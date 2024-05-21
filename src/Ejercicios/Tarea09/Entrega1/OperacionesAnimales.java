@@ -129,7 +129,7 @@ public class OperacionesAnimales {
             fis = new FileInputStream(archivoDatos);
             ois = new ObjectInputStream(fis);
 
-            // Numero de objetos de animales en el fichero la suma de gatos y perros.
+            // Utiles.Numero de objetos de animales en el fichero la suma de gatos y perros.
             animales = (NumeroAnimales) ois.readObject();
             System.out.println("Hay " + animales.getAnimales() + " animales en el fichero");
 

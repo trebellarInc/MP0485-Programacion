@@ -1,4 +1,4 @@
-/**
+package Utiles; /**
  * Genera un nombre y apellidos aleatorios basandose en los 100 nombres y 100 apellidos mas comunes en españa.
  * Datos estraidos del INE - Estadística del Padrón Continuo a fecha 01/01/2022 España
  * Estan en frecuencia x 1000,  NombreM 582 NombreF 516.4 Apellido 372.4

@@ -1,0 +1,45 @@
+1-
+
+Arrays
+
+Enumerados
+
+Menus
+
+Colecciones
+
+ArrayList HasMap
+Recorre busqquedas add delete
+
+Herencias
+
+Tipo de dato de su clases (Animales)
+
+Ficheros export listado usuarios  (txt xml json)
+apellidos x
+revision x
+
+
+
+2 - GUI  y bases datos
+
+
+Que necesitamos
+
+Polimorfismo Herencias Busqueda
+
+
+
+
+export JDBC_DATABASE_URL="jdbc:postgresql://ciclo-dam-9917.7tc.aws-eu-central-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&password=<ENTER-SQL-USER-PASSWORD>&user=soporte"
+qTU1gLxVIM8UlgabQvV1Rw
+
+   id serial not null primary key,
+
+CREATE TABLE paises_europeos (
+    id serial not null primary key,
+    nombre_pais VARCHAR(100),
+    capital VARCHAR(100),
+    extension_km2 DECIMAL(10, 2),
+    poblacion INT
+);

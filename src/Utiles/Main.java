@@ -1,3 +1,5 @@
+package Utiles;
+
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -18,7 +20,7 @@ public class Main {
 
         // Se cargan los datos, sean ficticios, API, base de datos...
         mapaUsuarios = Conexion_Datos.cargaUsuariosArchivo();
-        // Conexion_Datos.UsuariosTets(mapaUsuarios);
+        // Utiles.Conexion_Datos.UsuariosTets(mapaUsuarios);
         Conexion_Datos.cargaPilotos(mapaPilotos);
 
 
@@ -45,9 +47,9 @@ public class Main {
                     Texto.menuAcceso();
                     // Indica el numero de intentos restantes
                     if (intentoNumero == 3) {
-                        Texto.rojo("Numero de intentos: " + (INTENTOS_LOGIN - (intentoNumero - 1)));
+                        Texto.rojo("Utiles.Numero de intentos: " + (INTENTOS_LOGIN - (intentoNumero - 1)));
                     } else {
-                        System.out.println("Numero de intentos: " + (INTENTOS_LOGIN - (intentoNumero - 1)));
+                        System.out.println("Utiles.Numero de intentos: " + (INTENTOS_LOGIN - (intentoNumero - 1)));
                     }
                     Texto.menuPregunta("Nombre de usuario ", "");
                     userIntroducido = leerTeclado.nextLine();
@@ -83,7 +85,7 @@ public class Main {
         LocalDate inicio = LocalDate.of(1980, 1, 1);
         LocalDate fin = LocalDate.of(1999, 12, 31);
         for (int i = 0; i < 10; i++) {
-            System.out.println(Fechas.fechaEntre(inicio, fin));
+            System.out.println(Utiles.Fechas.fechaEntre(inicio, fin));
         }
 */
         /*
@@ -91,18 +93,18 @@ public class Main {
         String dniTest1 = "44083909v";
         String dniTest2 = "44083910V";
         String dniTest3 = "12345678Z";
-        System.out.println(Id_Esp.esValidoDNI(dniTest1));
-        System.out.println(Id_Esp.esValidoDNI(dniTest2));
-        System.out.println(Id_Esp.esValidoDNI(dniTest3));
+        System.out.println(Utiles.Id_Esp.esValidoDNI(dniTest1));
+        System.out.println(Utiles.Id_Esp.esValidoDNI(dniTest2));
+        System.out.println(Utiles.Id_Esp.esValidoDNI(dniTest3));
          */
 
 /*
-        System.out.println(Personas_Aleatorias.nombre());
-        System.out.println(Personas_Aleatorias.apellido());
-        System.out.println(Personas_Aleatorias.apellido());
+        System.out.println(Utiles.Personas_Aleatorias.nombre());
+        System.out.println(Utiles.Personas_Aleatorias.apellido());
+        System.out.println(Utiles.Personas_Aleatorias.apellido());
 
-        System.out.println(Id_Esp.generaDNI(10000000, 48100999));
-        System.out.println(Fechas.fechaEntre(LocalDate.of(1950, 1, 1), LocalDate.of(2019, 12, 31)));
+        System.out.println(Utiles.Id_Esp.generaDNI(10000000, 48100999));
+        System.out.println(Utiles.Fechas.fechaEntre(LocalDate.of(1950, 1, 1), LocalDate.of(2019, 12, 31)));
     */
 
 
@@ -165,7 +167,7 @@ public class Main {
         DateTimeFormatter yMd = DateTimeFormatter.ofPattern("yyyy-MM-dd' T 'HH:mm:ss");
         System.out.println("----------------------------------------------------------------------------");
         for (Usuario user : mapaUsuarios.values()) {
-            System.out.println("Usuario -> " + user.getNombre() + " \t(Activo - " + user.isActivo() + ") \t\t Ingreso = " + user.getFechaIngreso().format(yMd));
+            System.out.println("Utiles.Usuario -> " + user.getNombre() + " \t(Activo - " + user.isActivo() + ") \t\t Ingreso = " + user.getFechaIngreso().format(yMd));
         }
         System.out.println("----------------------------------------------------------------------------");
         Texto.pulsaTecla();

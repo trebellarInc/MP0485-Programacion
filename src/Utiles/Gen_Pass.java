@@ -1,3 +1,5 @@
+package Utiles;
+
 public class Gen_Pass {
 
     public static void test() {
