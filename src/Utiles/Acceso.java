@@ -13,19 +13,19 @@ public class Acceso {
             if (mapa.get(user).getPasswd().equals(Cifrado.md5(pass))) {
                 if (mapa.get(user).isActivo() == true) {
                     //System.out.println("Utiles.Acceso correcto");
-                    Texto.verde("Utiles.Acceso correcto.");
+                    Texto.verde("Acceso correcto.");
                     retorno = true;
                 } else {
                     //System.out.println("Utiles.Acceso denegado - usuario no activo");
-                    Texto.rojo("Utiles.Acceso denegado - usuario no activo.");
+                    Texto.rojo("Acceso denegado - usuario no activo.");
                 }
             } else {
                 //System.out.println("Utiles.Acceso denegado - clave incorrecta.");
-                Texto.rojo("Utiles.Acceso denegado - clave incorrecta.");
+                Texto.rojo("Acceso denegado - clave incorrecta.");
             }
         } else {
             //System.out.print("Utiles.Acceso denegado - el usuario " + user + " no existe.");
-            Texto.rojo("Utiles.Acceso denegado - el usuario " + user + " no existe.");
+            Texto.rojo("Acceso denegado - el usuario " + user + " no existe.");
         }
         return retorno;
     }
