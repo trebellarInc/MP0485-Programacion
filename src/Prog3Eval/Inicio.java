@@ -19,13 +19,19 @@ public class Inicio {
         System.out.println(mapaUsuarios);
 
         ModuloOperaciones.cargaModulos();
-        ModuloOperaciones.mostrarModulos();
+        PersonaOperaciones.cargaAlumnos();
+        PersonaOperaciones.mostrarAlumnos();
+        PersonaOperaciones.cargaDocentes();
+        PersonaOperaciones.mostrarDocentes();
 
-        LocalDate inicio = LocalDate.of(1965, 1, 1);
-        LocalDate fin = LocalDate.of(2000, 12, 31);
+
+        ModuloOperaciones.examenModulo();
+        ModuloOperaciones.mostrarModulos();
 
 
         /*
+        LocalDate inicio = LocalDate.of(1965, 1, 1);
+        LocalDate fin = LocalDate.of(2000, 12, 31);
         int dninumero=40500000;
         for (int i=1;i<=20;i++){
             int num = dninumero+ i;
@@ -37,11 +43,6 @@ public class Inicio {
             System.out.println(Personas_Aleatorias.apellido()+"\t\t");
         }
 */
-
-        //PersonaOperaciones.cargaAlumnos();
-        //PersonaOperaciones.mostrarAlumnos();
-        PersonaOperaciones.cargaDocentes();
-        PersonaOperaciones.mostrarDocentes();
 
 
     }

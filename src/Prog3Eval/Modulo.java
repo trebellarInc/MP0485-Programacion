@@ -22,14 +22,28 @@ package Prog3Eval;
 
  */
 
+import java.util.ArrayList;
+
 public class Modulo {
 
     String id;
     String nombre;
+    String descripcion;
 
-    public Modulo(String id, String nombre) {
+    ArrayList<ModuloExamen> listaExamenes = new ArrayList<>();
+
+    public Modulo(String id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getId() {
@@ -48,11 +62,18 @@ public class Modulo {
         this.nombre = nombre;
     }
 
+    public ArrayList<ModuloExamen> getListaExamenes() {
+        return listaExamenes;
+    }
+
+
     @Override
     public String toString() {
         return "Modulo{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", listaExamenes=" + listaExamenes +
                 '}';
     }
 }
