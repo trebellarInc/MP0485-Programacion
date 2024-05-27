@@ -14,6 +14,22 @@ public class Texto {
     static String ANSI_CYAN = "\u001B[36m";
     static String ANSI_WHITE = "\u001B[37m";
 
+    public static void rojo(String texto) {
+        System.out.println(ANSI_RED + texto + ANSI_RESET);
+    }
+
+    public static void verde(String texto) {
+        System.out.println(ANSI_GREEN + texto + ANSI_RESET);
+    }
+
+    public static void cyan(String texto) {
+        System.out.println(ANSI_CYAN + texto + ANSI_RESET);
+    }
+
+    public static void azul(String texto) {
+        System.out.println(ANSI_BLUE + texto + ANSI_RESET);
+    }
+
     public static void menuPregunta(String pregunta, String user) {
         System.out.println(ANSI_BLUE +
                 pregunta + ANSI_RED + user + ANSI_BLUE + "? " +
@@ -29,19 +45,8 @@ public class Texto {
 
     }
 
-    public static void rojo(String texto) {
-        System.out.println(ANSI_RED + texto + ANSI_RESET);
-    }
 
-    public static void verde(String texto) {
-        System.out.println(ANSI_GREEN + texto + ANSI_RESET);
-    }
-
-    public static void cyan(String texto) {
-        System.out.println(ANSI_CYAN + texto + ANSI_RESET);
-    }
-
-    public static void pulsaTecla(){
+    public static void pulsaTecla() {
         System.out.println("Pulsa una ENTER para continuar.");
         try {
             System.in.read();

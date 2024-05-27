@@ -13,35 +13,28 @@ public class Fechas {
     public static void main(String[] args) {
         /*
         // Test del metodo FechaEntre
-
         LocalDate inicio = LocalDate.of(1982,1,1);
         LocalDate fin = LocalDate.of(1999,12,31);
         System.out.println(fechaEntre(inicio,fin));
-                 */
+        */
 
+        // Test del metodo captura
         String entradaTeclado = Captura.cadena("Introduce un fecha ?");
         LocalDate f = null;
         f = captura(entradaTeclado);
-        System.out.println("La fecha devuelta es -> " +f);
-
+        System.out.println("La fecha devuelta es -> " + f);
     }
 
 
     public static LocalDate captura(String entradaTeclao) {
-
-
         LocalDate retorno = null;
-
         int anio = 0;
         int mes = 0;
         int dia = 0;
-
-
         // Valida este formato YYYY-MM-DD
         String patronFecha = "\\d{4}-\\d{2}-\\d{2}";
         // Valida este formato DD-MM-AAAA
         String patronFecha2 = "\\d{2}-\\d{2}-\\d{4}";
-
 
         if (entradaTeclao.matches(patronFecha)) {
             System.out.println("El formato introducido es YYYY-MM-DD");
@@ -49,30 +42,23 @@ public class Fechas {
             mes = Integer.parseInt(entradaTeclao.substring(5, 7));
             dia = Integer.parseInt(entradaTeclao.substring(8));
             System.out.println(anio + " " + mes + " " + dia);
-
         } else if (entradaTeclao.matches(patronFecha2)) {
             System.out.println("El formato introducido es DD-MM-AAAA");
             dia = Integer.parseInt(entradaTeclao.substring(0, 2));
             mes = Integer.parseInt(entradaTeclao.substring(3, 5));
             anio = Integer.parseInt(entradaTeclao.substring(6));
             System.out.println(anio + " " + mes + " " + dia);
-
         } else {
-           // System.out.println("El formato de fecha introducido no es valido");
+            // System.out.println("El formato de fecha introducido no es valido");
         }
-
 
         try {
             retorno = LocalDate.of(anio, mes, dia);
         } catch (DateTimeException | NumberFormatException | StringIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
             System.out.println("El formato de fecha introducido no es valido");
-
         }
-
-
         return retorno;
-
     }
 
 
