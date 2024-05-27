@@ -1,0 +1,17 @@
+<list>
+  <DatosCliente>
+    <id>1</id>
+    <nombre>Pablo</nombre>
+    <saldoCuenta>1.2</saldoCuenta>
+  </DatosCliente>
+  <DatosCliente>
+    <id>1</id>
+    <nombre>Juan</nombre>
+    <saldoCuenta>123.2</saldoCuenta>
+  </DatosCliente>
+  <DatosCliente>
+    <id>1</id>
+    <nombre>Pablo</nombre>
+    <saldoCuenta>-12.45</saldoCuenta>
+  </DatosCliente>
+</list>
