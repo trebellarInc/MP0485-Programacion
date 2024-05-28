@@ -16,12 +16,11 @@ public class TestArrayBusquedas {
         cargaDocentes();
         for (Docente d: listaDocentes
              ) {
-
            System.out.println(d.toString());
             listaDocentesTree.put(d.getDni(),d);
         }
         System.out.println("----------------");
-        //System.out.println(listaDocentesTree);
+//        System.out.println(listaDocentesTree);
 
         String respuesta = JOptionPane.showInputDialog("Indica nombre a buscar ?", "");
 
