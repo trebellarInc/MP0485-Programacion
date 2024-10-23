@@ -43,13 +43,30 @@ public class Personas_Aleatorias {
 
         return nombreApellido;
     }
-
+/**
+ * Genera un nombre aleatorio basado en el género.
+ * 
+ * El método determina aleatoriamente el género (masculino o femenino) y selecciona 
+ * un nombre adecuado según el resultado. Si el valor de "sexo" es 1, selecciona un nombre masculino,
+ * de lo contrario, selecciona un nombre femenino. Los nombres se seleccionan de las listas 
+ * `nombreM` (masculino) y `nombreF` (femenino) utilizando posiciones aleatorias generadas.
+ *
+ * @return Un nombre aleatorio, masculino o femenino, dependiendo del valor generado aleatoriamente.
+ */
     public static String nombre() {
         // Determina el nombre si es femenino o masculino
         int sexo = random.nextInt(2);
         return (sexo == 1) ? nombreM[PosicionAleatoria(porcentajeM1000, porcentajeM)] : nombreF[PosicionAleatoria(porcentajeF1000, porcentajeF)];
     }
-
+/**
+ * Genera un apellido aleatorio.
+ * 
+ * El método selecciona aleatoriamente un apellido de la lista `apellido` utilizando 
+ * la función `PosicionAleatoria()`, que se basa en los porcentajes proporcionados por 
+ * los arrays `porcentajeA1000` y `porcentajeA`.
+ *
+ * @return Un apellido aleatorio seleccionado de la lista de apellidos.
+ */
     public static String apellido() {
         return apellido[PosicionAleatoria(porcentajeA1000, porcentajeA)];
     }
